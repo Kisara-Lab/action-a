@@ -1,0 +1,22 @@
+{
+  "name": "action-a-workspace",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w packages/action-a && npm run build -w packages/action-skill",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --conditions=source --experimental-strip-types --test tests/*.test.ts",
+    "format": "prettier --write packages tests README.md",
+    "format:check": "prettier --check packages tests README.md"
+  },
+  "devDependencies": {
+    "phaser": "^3.90.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.3",
+    "@types/node": "^22.0.0"
+  }
+}
